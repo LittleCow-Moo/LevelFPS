@@ -11,7 +11,9 @@ import java.lang.reflect.Field;
 public class LevelFPSClient implements ClientModInitializer {
     private static final String SERVER_HOST = "smp.cowgl.xyz".toLowerCase(); // Server hostname or IP address (converted to lowercase)
     private int currentFPSLimit = 60; // Default FPS limit
-    public void onInitialize() {
+
+    @Override
+    public void onInitializeClient() {
         // Register tick event handler
         ClientTickEvents.END_CLIENT_TICK.register(this::onClientTick);
     }
@@ -57,10 +59,5 @@ public class LevelFPSClient implements ClientModInitializer {
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void onInitializeClient() {
-
     }
 }
