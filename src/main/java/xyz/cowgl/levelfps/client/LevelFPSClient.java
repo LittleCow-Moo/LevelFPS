@@ -24,6 +24,7 @@ public class LevelFPSClient implements ClientModInitializer {
 
             // Update FPS limit if it has changed
             if (targetFPS != currentFPSLimit) {
+                System.out.println("Hi there, I'm trying to change your FPS limit.");
                 setFPSLimit(targetFPS);
                 currentFPSLimit = targetFPS;
             }
