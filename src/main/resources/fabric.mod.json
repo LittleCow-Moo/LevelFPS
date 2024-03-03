@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "levelfps",
+  "version": "${version}",
+  "name": "LevelFPS",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/LittleCow-moo/LevelFPS"
+  },
+  "license": "MIT",
+  "icon": "assets/levelfps/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "xyz.cowgl.levelfps.client.LevelFPSClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}
