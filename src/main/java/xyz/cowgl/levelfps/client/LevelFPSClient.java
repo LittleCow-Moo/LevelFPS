@@ -14,6 +14,7 @@ public class LevelFPSClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        System.out.println("Hi there, LevelFPSClient mod has been initialized.");
         // Register tick event handler
         ClientTickEvents.END_CLIENT_TICK.register(this::onClientTick);
     }
@@ -35,7 +36,13 @@ public class LevelFPSClient implements ClientModInitializer {
 
     // Method to check if the client is connected to the allowed server
     private boolean isOnAllowedServer(MinecraftClient client) {
-        return client.getCurrentServerEntry() != null && client.getCurrentServerEntry().address.toLowerCase().contains(SERVER_HOST);
+        boolean connectedToServer = client.getCurrentServerEntry() != null && client.getCurrentServerEntry().address.toLowerCase().contains(SERVER_HOST);
+        if (connectedToServer) {
+            System.out.println("Hi there, you are connected to the allowed server: " + SERVER_HOST);
+        } else {
+            System.out.println("Hi there, you are not connected to the allowed server: " + SERVER_HOST);
+        }
+        return connectedToServer;
     }
 
     // Method to retrieve player level from the game
@@ -51,7 +58,7 @@ public class LevelFPSClient implements ClientModInitializer {
 
     // Method to set FPS limit in the game
     private void setFPSLimit(int fpsLimit) {
-        // Implement this method to set FPS limit in the game
+        System.out.println("Hi there, I'm setting FPS limit to: " + fpsLimit);
         try {
             Field maxFpsField = GameOptions.class.getDeclaredField("maxFps");
             maxFpsField.setAccessible(true);
